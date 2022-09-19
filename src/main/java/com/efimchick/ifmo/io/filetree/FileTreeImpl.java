@@ -4,10 +4,7 @@ import com.efimchick.ifmo.io.filetree.FileTree;
 
 import java.io.File;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class FileTreeImpl implements FileTree {
 
@@ -73,7 +70,7 @@ public class FileTreeImpl implements FileTree {
     }
     private File[] sortFiles(File[] folder) {
 
-        Arrays.sort(folder);
+        Arrays.sort(folder, Comparator.comparing(o -> o.getPath().toLowerCase()));
         List<File> sorted = new ArrayList<>();
 
         for (int i = 0; i < folder.length; i++) {
